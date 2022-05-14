@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import Stripe from 'stripe'
 import cookie from 'cookie'
-import { supabase } from '../../../utils/supabase'
+import { supabase } from '../../utils/supabase'
 
 const handler = async (
   req: NextApiRequest,
@@ -34,23 +34,13 @@ const handler = async (
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: '2020-08-27',
   })
-  const {priceId} = req.query
 
-  const lineItems = [{
-    price: priceId as string,
-    quantity: 1
-  }]
-
-  const session = await stripe.checkout.sessions.create({
+  const session = await stripe.billingPortal.sessions.create({
     customer: stripe_customer,
-    mode: 'subscription',
-    payment_method_types: ['card'],
-    line_items: lineItems,
-    success_url: `${process.env.CLIENT_URL}/payment/success`,
-    cancel_url: `${process.env.CLIENT_URL}/payment/canceled`,
+    return_url: `${process.env.CLIENT_URL}/dashboard`,
   })
 
-  res.send({id: session.id})
+  res.send({url: session.url})
 }
 
 export default handler

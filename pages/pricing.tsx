@@ -4,6 +4,7 @@ import type { NextPage } from 'next'
 import Stripe from 'stripe'
 import axios from 'axios'
 import { loadStripe } from '@stripe/stripe-js'
+import Link from 'next/link'
 
 import type { Plan, Price } from '../types'
 import { useUser } from '../context/user'
@@ -49,7 +50,7 @@ const Login: NextPage<Props> = ({plans}) => {
               }
               {
                 showManageSubscriptionButton &&
-                  <button>Manage Subscription</button>
+                  <Link href="/dashboard"><a >Manage Subscription</a></Link>
               }
             </div>): <TextLoader/>
             }

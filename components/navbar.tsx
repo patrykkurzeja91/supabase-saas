@@ -28,6 +28,10 @@ const Navbar: NextPage = () => {
               <div className='flex items-center'>
                 <Link href='/'><a className='mr-2'>Home</a></Link>
                 <Link href='/pricing'><a className='mr-2'>Pricing</a></Link>
+                {
+                  !!user && <Link href='/dashboard'><a className='mr-2'>Dashboard</a></Link>
+                }
+
               </div>
               <div className="ml-auto flex justify-end">
                 {!user ? <button

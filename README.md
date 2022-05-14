@@ -21,3 +21,17 @@ pnpm create next-app -- --example with-tailwindcss with-tailwindcss-app
 ```
 
 Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+
+
+## Supabase
+### Function webhook
+```
+name: get_stripe_customer
+table: 'profile'
+events: 'Insert'
+type of hook: 'http request'
+method: 'POST'
+url: 'https://2e5c-178-43-152-208.ngrok.io/api/create-stripe-customer'
+
+HTTP Params: API_ROUTE_SECRET
+```
