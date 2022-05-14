@@ -46,8 +46,8 @@ const handler = async (
     mode: 'subscription',
     payment_method_types: ['card'],
     line_items: lineItems,
-    success_url: `${process.env.CLIENT_URL}/payment/success`,
-    cancel_url: `${process.env.CLIENT_URL}/payment/canceled`,
+    success_url: `${process.env.BASE_URL}/payment/success`,
+    cancel_url: `${process.env.BASE_URL}/payment/canceled`,
   })
 
   res.send({id: session.id})
