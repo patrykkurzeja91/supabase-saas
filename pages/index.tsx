@@ -7,7 +7,7 @@ import { useUser } from '../context/user'
 interface Props {
   lessons: Lesson[];
 }
-const Lessons: NextPage<Props> = ({ lessons }) => {
+const Home: NextPage<Props> = ({ lessons }) => {
   const { user } = useUser()
   console.log(user);
   return (
@@ -24,9 +24,9 @@ const Lessons: NextPage<Props> = ({ lessons }) => {
   )
 }
 
-export default Lessons
+export default Home
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const { data: lessons } = await supabase.from('lesson').select('*')
 
   return {
