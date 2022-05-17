@@ -31,7 +31,7 @@ table: 'profile'
 events: 'Insert'
 type of hook: 'http request'
 method: 'POST'
-url: 'https://2e5c-178-43-152-208.ngrok.io/api/create-stripe-customer'
+url: 'https://supabase-saas-ecru.vercel.app/api/create-stripe-customer' (prod url)
 
 HTTP Params: API_ROUTE_SECRET
 ```
