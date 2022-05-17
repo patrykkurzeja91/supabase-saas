@@ -26,7 +26,7 @@ const Home: NextPage<Props> = ({ lessons }) => {
 
 export default Home
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const { data: lessons } = await supabase.from('lesson').select('*')
 
   return {
